@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 
 public class TheMovieDB {
-    public static final String API_KEY = "api_key=teste";
+    public static final String API_KEY = "api_key=11b66e345f4ba9e5676219584613b49a";
     public static final String BASE_URL = "https://api.themoviedb.org/";
     public static final String TAMANHO = "3";
     public static final String POPULAR = "/movie/popular?";//sortBy==1
