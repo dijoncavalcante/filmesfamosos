@@ -163,31 +163,4 @@
          android:textStyle="bold"/>
 
     </LinearLayout>
-    <!--Trailer-->
-    <!--<ScrollView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="horizontal">-->
-        <!--<LinearLayout-->
-            <!--android:orientation="horizontal"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
-            <!--<ImageView-->
-                <!--android:id="@+id/ivTrailers"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:src="@drawable/sample_1"-->
-                <!--android:adjustViewBounds="true"-->
-                <!--android:layout_marginLeft="1dp"-->
-                <!--android:layout_marginRight="1dp"/>-->
-            <!--<ImageView-->
-                <!--android:id="@+id/ivTrailers2"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:src="@drawable/sample_2"-->
-                <!--android:adjustViewBounds="true"-->
-                <!--android:layout_marginLeft="1dp"-->
-                <!--android:layout_marginRight="1dp" />-->
-        <!--</LinearLayout>-->
-    <!--</ScrollView>-->
 </android.support.v4.widget.NestedScrollView>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FilmesFamosos</string>
+    <string name="app_name">Filmes Famosos</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -16,4 +16,6 @@
         "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
         "flexibility of the material creates new affordances that supercede those in the physical "
         "world, without breaking the rules of physics."</string>
+    <string name="popular">Mais Popular</string>
+    <string name="mais_votados">Mais Votados</string>
 </resources>
