@@ -12,26 +12,39 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/country_foto"
-            android:layout_width="wrap_content"
+            android:id="@+id/imageView_foto"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:contentDescription="Imagem"
             android:src="@drawable/ic_menu_camera"
-            android:scaleType="centerCrop"/>
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"/>
 
-        <TextView
-            android:id="@+id/country_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="13sp"
-            android:text="@string/app_name"
-            android:textColor="@color/colorAccent"
-            android:gravity="center"
-            android:layout_below="@+id/country_foto"
-            android:paddingBottom="8dp"
-            android:paddingTop="8dp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/colorPrimaryDark"/>
+        <!--<TextView-->
+            <!--android:id="@+id/imageView_name"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="13sp"-->
+            <!--android:text="@string/app_name"-->
+            <!--android:textColor="@color/colorAccent"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_below="@+id/imageView_foto"-->
+            <!--android:paddingBottom="8dp"-->
+            <!--android:paddingTop="8dp"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:background="@color/colorPrimaryDark"/>-->
+
+        <!--<RatingBar-->
+            <!--android:id="@+id/ratingBar"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:numStars="4"-->
+            <!--android:stepSize="1.0"-->
+            <!--android:layout_below="@+id/imageView_foto"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:background="@color/colorPrimaryDark"/>-->
+        <!---->
+        <!--android:rating="2.0"-->
 
     </RelativeLayout>
 

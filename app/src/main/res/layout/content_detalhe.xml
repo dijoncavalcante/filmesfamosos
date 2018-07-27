@@ -18,7 +18,7 @@
         android:id="@+id/ivDetalhe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/sample_0"
+        android:src="@drawable/ic_menu_camera"
         android:adjustViewBounds="true"
         android:layout_marginBottom="8dp" />
 <!--Titulo    -->

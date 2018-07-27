@@ -1,10 +1,10 @@
 package com.sistemas.braga.filmesfamosos;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,12 +12,14 @@ public class RecyclerViewHolders extends RecyclerView.ViewHolder implements View
 
     public TextView name;
     public ImageView foto;
+    public RatingBar rattingBar;
 
     public RecyclerViewHolders(View itemView) {
         super(itemView);
         itemView.setOnClickListener(this);
-        name = (TextView) itemView.findViewById(R.id.country_name);
-        foto = (ImageView) itemView.findViewById(R.id.country_foto);
+        //name = itemView.findViewById(R.id.imageView_name);
+        foto = itemView.findViewById(R.id.imageView_foto);
+       // rattingBar = itemView.findViewById(R.id.ratingBar);
     }
 
     @Override
