@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Filmes Famosos</string>
+    <string name="app_name">FilmesFamosos</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -18,5 +18,4 @@
         "world, without breaking the rules of physics."</string>
     <string name="popular">Mais Popular</string>
     <string name="mais_votados">Mais Votados</string>
-    <string name="title_activity_deleteme">Deleteme</string>
 </resources>
