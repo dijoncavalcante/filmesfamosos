@@ -6,18 +6,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
+
+import model.Result;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolders> {
 
-    private List<ItemObject> itemList;
+    private List<Result> resultList;
     private Context context;
 
-    public RecyclerViewAdapter(Context context, List<ItemObject> itemList){
-        this.itemList = itemList;
+    public RecyclerViewAdapter(Context context, List<Result> resultList) {
+        this.resultList = resultList;
         this.context = context;
     }
-//    @NonNull
+
     @Override
     public RecyclerViewHolders onCreateViewHolder(ViewGroup parent, int viewType) {
         View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_list, null);
@@ -27,12 +31,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
     @Override
     public void onBindViewHolder(RecyclerViewHolders holder, int position) {
-        holder.name.setText(itemList.get(position).getName());
-        holder.foto.setImageResource(itemList.get(position).getPhoto());
+        holder.name.setText(resultList.get(position).getTitle());
+        holder.rattingBar.setRating(resultList.get(position).getVote_average());
+        String urlDaImagem = "https://image.tmdb.org/t/p/w185"+resultList.get(position).getPoster_path();
+        Picasso.with(context)
+                .load(urlDaImagem)
+                .placeholder(R.drawable.ic_menu_camera)
+                .error(R.drawable.ic_menu_camera)
+                .into(holder.foto);
+        holder.foto.setContentDescription(urlDaImagem);
+        holder.tvDescricaoSinopse.setText(resultList.get(position).getOverview());
+        holder.tvLancamentoValor.setText(resultList.get(position).getRelease_date());
+        holder.tvVotosValor.setText(String.valueOf(resultList.get(position).getVote_count()));
     }
 
     @Override
     public int getItemCount() {
-        return this.itemList.size();
+        return this.resultList.size();
     }
 }

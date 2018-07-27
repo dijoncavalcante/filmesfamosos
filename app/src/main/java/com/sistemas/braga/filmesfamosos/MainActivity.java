@@ -28,7 +28,10 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private GridLayoutManager lLayout;
+    RequisicaoObj requisicaoObj;
+    Call<RequisicaoObj> call;
     private final static String TAG = "MainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,43 +39,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
-        List<ItemObject> rowListItem = getAllItemList();
-        lLayout = new GridLayoutManager(MainActivity.this, 2);
-
-        RecyclerView rView = findViewById(R.id.recycler_view);
-        rView.setHasFixedSize(true);
-        rView.setLayoutManager(lLayout);
-
-        RecyclerViewAdapter rcAdapter = new RecyclerViewAdapter(MainActivity.this, rowListItem);
-        rView.setAdapter(rcAdapter);
 
         //codigo usando o retrofit
-        Call<RequisicaoObj> call = new RetrofitConfig().getMovieService().buscarFilmesPopulares();
+        buscarFilmesPopulares();
 
-        call.enqueue(new Callback<RequisicaoObj>() {
-            @Override
-            public void onResponse(Call<RequisicaoObj> call, Response<RequisicaoObj> response) {
-                //pegar a respossta
-                RequisicaoObj requisicaoObj = response.body();
-                //definir aqui os valores
 
-            }
-
-            @Override
-            public void onFailure(Call<RequisicaoObj> call, Throwable t) {
-                //tratar algum erro
-                Log.e(TAG, "Erro ao buscar os filmes");
-            }
-        });
     }
 
     @Override
@@ -86,34 +57,77 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int menuItemSelecionado = item.getItemId();
         if(menuItemSelecionado == R.id.action_popular){
-            Toast.makeText(getBaseContext(),"action_popular",Toast.LENGTH_SHORT).show();
+            buscarFilmesPopulares();
             return true;
         }
         if(menuItemSelecionado == R.id.action_top_rated){
-            Toast.makeText(getBaseContext(),"action_top_rated",Toast.LENGTH_SHORT).show();
+            buscarFilmesMaisVotados();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private List<ItemObject> getAllItemList(){
-        List<ItemObject> allItems = new ArrayList<ItemObject>();
-        allItems.add(new ItemObject("United States", R.drawable.sample_0));
-        allItems.add(new ItemObject("Canada", R.drawable.sample_5));
-        allItems.add(new ItemObject("United Kingdom", R.drawable.sample_0));
-        allItems.add(new ItemObject("Germany", R.drawable.sample_5));
-        allItems.add(new ItemObject("Sweden", R.drawable.sample_5));
-        allItems.add(new ItemObject("United Kingdom", R.drawable.sample_0));
-        allItems.add(new ItemObject("Germany", R.drawable.sample_5));
-        allItems.add(new ItemObject("Sweden", R.drawable.sample_0));
-        allItems.add(new ItemObject("United States", R.drawable.sample_0));
-        allItems.add(new ItemObject("Canada", R.drawable.sample_0));
-        allItems.add(new ItemObject("United Kingdom", R.drawable.sample_5));
-        allItems.add(new ItemObject("Germany", R.drawable.sample_0));
-        allItems.add(new ItemObject("Sweden", R.drawable.sample_5));
-        allItems.add(new ItemObject("United Kingdom", R.drawable.sample_0));
-        allItems.add(new ItemObject("Germany", R.drawable.sample_5));
-        allItems.add(new ItemObject("Sweden", R.drawable.sample_0));
-        return allItems;
+    public void buscarFilmesPopulares(){
+        lLayout = new GridLayoutManager(MainActivity.this, 2);
+
+        final RecyclerView rView = findViewById(R.id.recycler_view);
+        rView.setHasFixedSize(true);
+        rView.setLayoutManager(lLayout);
+        rView.setFitsSystemWindows(true);
+        call = new RetrofitConfig().getMovieService().buscarFilmesPopulares();
+        call.enqueue(new Callback<RequisicaoObj>() {
+            @Override
+            public void onResponse(Call<RequisicaoObj> call, Response<RequisicaoObj> response) {
+                requisicaoObj = response.body();
+                RecyclerViewAdapter rcAdapter = new RecyclerViewAdapter(MainActivity.this, requisicaoObj.getResults());
+                rView.setAdapter(rcAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<RequisicaoObj> call, Throwable t) {
+                Log.e(TAG, "Sem conexão com a internet");
+                Snackbar snackbar = Snackbar
+                        .make(rView, "Sem conexão com a internet", Snackbar.LENGTH_SHORT)
+                        .setAction("Tentar", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                buscarFilmesPopulares();
+                            }
+                        });
+                snackbar.show();
+            }
+        });
     }
+    public void buscarFilmesMaisVotados(){
+        lLayout = new GridLayoutManager(MainActivity.this, 2);
+
+        final RecyclerView rView = findViewById(R.id.recycler_view);
+        rView.setHasFixedSize(true);
+        rView.setLayoutManager(lLayout);
+        rView.setFitsSystemWindows(true);
+        call = new RetrofitConfig().getMovieService().buscarFilmesMaisVotados();
+        call.enqueue(new Callback<RequisicaoObj>() {
+            @Override
+            public void onResponse(Call<RequisicaoObj> call, Response<RequisicaoObj> response) {
+                requisicaoObj = response.body();
+                RecyclerViewAdapter rcAdapter = new RecyclerViewAdapter(MainActivity.this, requisicaoObj.getResults());
+                rView.setAdapter(rcAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<RequisicaoObj> call, Throwable t) {
+                Log.e(TAG, "Sem conexão com a internet");
+                Snackbar snackbar = Snackbar
+                        .make(rView, "Sem conexão com a internet", Snackbar.LENGTH_SHORT)
+                        .setAction("Tentar", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                buscarFilmesPopulares();
+                            }
+                        });
+                snackbar.show();
+            }
+        });
+    }
+
 }

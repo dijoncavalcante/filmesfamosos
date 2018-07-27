@@ -8,7 +8,6 @@
     tools:context="com.sistemas.braga.filmesfamosos.DetalheActivity"
     tools:showIn="@layout/activity_detalhe">
 
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -18,7 +17,7 @@
         android:id="@+id/ivDetalhe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/sample_0"
+        android:src="@drawable/ic_menu_camera"
         android:adjustViewBounds="true"
         android:layout_marginBottom="8dp" />
 <!--Titulo    -->
@@ -41,26 +40,7 @@
         android:text="Fogo na Caixa D'agua"
         android:textSize="20sp"
         android:textStyle="bold"/>
-<!--Genero-->
-        <TextView
-            android:id="@+id/tvGenero"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Gênero:"
-            android:textSize="15sp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="2dp"/>
-        <TextView
-            android:id="@+id/tvDescricaoGenero"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Terror, Ação, Suspense, Comédia"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="15dp"/>
+
     <!--Media em estrelas-->
         <TextView
             android:id="@+id/tvMediaDeEstrelas"
@@ -95,32 +75,13 @@
             android:id="@+id/tvVotosValor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="6.978"
+            android:inputType="numberDecimal"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="15dp"/>
-<!--Duração-->
-<TextView
-    android:id="@+id/tvDuracao"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Duração:"
-    android:textSize="15dp"
-    android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp"
-    android:layout_marginBottom="2dp"/>
-        <TextView
-            android:id="@+id/tvduracaoValor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="150 minutos"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="15dp"/>
+
 <!--Lançamento-->
         <TextView
             android:id="@+id/tvLancamento"
@@ -135,7 +96,7 @@
             android:id="@+id/tvLancamentoValor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="07/09/1990"
+            android:inputType="date"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginLeft="8dp"
@@ -158,7 +119,6 @@
          android:layout_marginLeft="8dp"
          android:layout_marginRight="8dp"
          android:layout_marginBottom="15dp"
-         android:text="@string/large_text"
          android:textSize="20sp"
          android:textStyle="bold"/>
 

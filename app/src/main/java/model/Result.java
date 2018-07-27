@@ -2,11 +2,12 @@ package model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
 @JsonIgnoreProperties({"genre_ids"})
-public class Result {
+public class Result implements Serializable{
     private float vote_count;
     private float id;
     private boolean video;
