@@ -3,6 +3,7 @@ package com.sistemas.braga.filmesfamosos;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     RequisicaoObj requisicaoObj;
     Call<RequisicaoObj> call;
     private final static String TAG = "MainActivity";
+    SwipeRefreshLayout mSwipeRefreshLayout;
+    public boolean flagFiltroPrincial = true;//filmes populares
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +41,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        mSwipeRefreshLayout =  findViewById(R.id.swipeToRefresh);
 
+        if (savedInstanceState != null) {
+            // Restaura valores dos membros a partir do estado salvo
+            flagFiltroPrincial = savedInstanceState.getBoolean("flagFiltroPrincial");
+        }
 
         //codigo usando o retrofit
-        buscarFilmesPopulares();
+        CarregarFilmesConformeFiltro();
 
 
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                CarregarFilmesConformeFiltro();
+                mSwipeRefreshLayout.setRefreshing(false);
+            }
+        });
     }
 
     @Override
@@ -68,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buscarFilmesPopulares(){
+        flagFiltroPrincial = true;
         lLayout = new GridLayoutManager(MainActivity.this, 2);
 
         final RecyclerView rView = findViewById(R.id.recycler_view);
@@ -99,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public void buscarFilmesMaisVotados(){
+        flagFiltroPrincial = false;
         lLayout = new GridLayoutManager(MainActivity.this, 2);
 
         final RecyclerView rView = findViewById(R.id.recycler_view);
@@ -122,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Tentar", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                buscarFilmesPopulares();
+                                CarregarFilmesConformeFiltro();
                             }
                         });
                 snackbar.show();
@@ -130,4 +147,24 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void CarregarFilmesConformeFiltro(){
+        if(flagFiltroPrincial){
+            buscarFilmesPopulares();
+        }
+        else {
+            buscarFilmesMaisVotados();
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("flagFiltroPrincial", flagFiltroPrincial);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        flagFiltroPrincial = savedInstanceState.getBoolean("flagFiltroPrincial");
+    }
 }

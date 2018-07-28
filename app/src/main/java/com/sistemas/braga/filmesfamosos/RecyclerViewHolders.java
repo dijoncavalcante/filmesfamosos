@@ -15,7 +15,7 @@ public class RecyclerViewHolders extends RecyclerView.ViewHolder implements View
 
     public TextView name;
     public ImageView foto;
-    public RatingBar rattingBar;
+    public TextView  rattingBar;
     public TextView tvVotosValor;
     public TextView tvLancamentoValor;
     public TextView tvDescricaoSinopse;
@@ -36,7 +36,7 @@ public class RecyclerViewHolders extends RecyclerView.ViewHolder implements View
         Result filme = new Result();
         filme.setTitle(name.getText().toString());
         filme.setPoster_path(foto.getContentDescription().toString());
-        filme.setVote_average(Float.parseFloat(String.valueOf(rattingBar.getRating())));
+        filme.setVote_average(Float.parseFloat(String.valueOf(rattingBar.getText())));
         filme.setOverview(tvDescricaoSinopse.getText().toString());
         filme.setRelease_date(tvLancamentoValor.getText().toString());
         filme.setVote_count(Float.parseFloat(String.valueOf(tvVotosValor.getText())));

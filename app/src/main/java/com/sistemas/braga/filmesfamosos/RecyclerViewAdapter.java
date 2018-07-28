@@ -32,7 +32,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
     @Override
     public void onBindViewHolder(RecyclerViewHolders holder, int position) {
         holder.name.setText(resultList.get(position).getTitle());
-        holder.rattingBar.setRating(resultList.get(position).getVote_average());
+        holder.rattingBar.setText(String.valueOf(resultList.get(position).getVote_average()));
         String urlDaImagem = "https://image.tmdb.org/t/p/w185"+resultList.get(position).getPoster_path();
         Picasso.with(context)
                 .load(urlDaImagem)
