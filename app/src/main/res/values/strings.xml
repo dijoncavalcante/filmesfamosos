@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">FilmesFamosos</string>
-    <string name="action_settings">Settings</string>
     <string name="title_activity_detalhe">Detalhes</string>
     <string name="popular">Mais Populares</string>
     <string name="mais_votados">Mais Votados</string>
+    <!-- Strings related to login -->
+    <string name="sinopse">Sinopse:</string>
+    <string name="titulo">Título:</string>
+    <string name="media_em_estrelas">Média em Estrelas:</string>
+    <string name="votos">Votos:</string>
+    <string name="lancameneto">Lançamento:</string>
+    <string name="imagem">Imagem</string>
 </resources>

@@ -17,7 +17,7 @@ public class Result implements Serializable{
     private String poster_path;
     private String original_language;
     private String original_title;
-    ArrayList< Object > genre_ids = new ArrayList < Object > ();
+    ArrayList< Object > genre_ids = new ArrayList<>();
     private String backdrop_path;
     private boolean adult;
     private String overview;

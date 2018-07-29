@@ -4,7 +4,6 @@
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:fitsSystemWindows="true"
     card_view:cardUseCompatPadding="false">
     <!--card_view:cardCornerRadius="8dp"-->
     <!--android:layout_marginBottom="16dp"-->
@@ -16,7 +15,7 @@
             android:id="@+id/imageView_foto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentDescription="Imagem"
+            android:contentDescription="@string/imagem"
             android:src="@drawable/ic_menu_camera"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"/>
@@ -46,8 +45,7 @@
             android:layout_alignParentBottom="true"
             android:background="@color/colorPrimaryDark"
             android:visibility="gone"/>
-        <!---->
-        <!--android:rating="2.0"-->
+
         <TextView
             android:id="@id/tvLancamentoValor"
             android:layout_width="match_parent"

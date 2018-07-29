@@ -7,7 +7,7 @@ public class RequisicaoObj {
     private float page;
     private float total_results;
     private float total_pages;
-    ArrayList<Result> results = new ArrayList<Result>();
+    ArrayList<Result> results = new ArrayList<>();
 
     public ArrayList<Result> getResults() {
         return results;

@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="400dp"
             android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/imagem"
             android:layout_marginBottom="8dp"
             android:adjustViewBounds="false"
             />
@@ -32,7 +33,7 @@
             android:layout_marginBottom="2dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:text="Título:"
+            android:text="@string/titulo"
             android:textSize="15sp" />
 
         <TextView
@@ -42,7 +43,6 @@
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:text="Fogo na Caixa D'agua"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -54,7 +54,7 @@
             android:layout_marginBottom="2dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:text="Media em Estrelas:"
+            android:text="@string/media_em_estrelas"
             android:textSize="15sp" />
 
         <TextView
@@ -64,7 +64,6 @@
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:text="6.4"
             android:textSize="20sp"
             android:textStyle="bold" />
         <!--Votos-->
@@ -75,7 +74,7 @@
             android:layout_marginBottom="2dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:text="Votos:"
+            android:text="@string/votos"
             android:textSize="15sp" />
 
         <TextView
@@ -85,7 +84,6 @@
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:inputType="numberDecimal"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -97,8 +95,8 @@
             android:layout_marginBottom="2dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:text="Lançamento:"
-            android:textSize="15dp" />
+            android:text="@string/lancameneto"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/tvLancamentoValor"
@@ -107,7 +105,6 @@
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:inputType="date"
             android:textSize="20sp"
             android:textStyle="bold" />
         <!--Sinopse-->
@@ -118,7 +115,7 @@
             android:layout_marginBottom="2dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:text="Sinopse:"
+            android:text="@string/sinopse"
             android:textSize="15sp" />
 
         <TextView
